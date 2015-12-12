@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -d ./index.js --watch ./backend"
+    "start": "APP_HOST=localhost APP_PORT=3000 DEBUG=nodemon nodemon index.js -d --watch ./backend --watch ./index.js",
+    "webpack": "APP_HOST=localhost WDS_PORT=3001 DEBUG=nodemon nodemon webpack.js -d --watch ./webpack.config.js --watch ./webpack.js"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "angular": "^1.4.7",
     "angular-ui-router": "^0.2.15",

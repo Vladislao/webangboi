@@ -3,6 +3,8 @@ var autoprefixer = require('autoprefixer-core');
 var Webpack = require('webpack');
 
 var host = process.env.APP_HOST || 'localhost';
+var config = require('./config.js');
+
 var entryPath = path.resolve(__dirname, 'frontend', 'index.js');
 var assetsPath = path.resolve(__dirname, 'public', 'assets');
 var srcPath = path.resolve(__dirname, 'frontend');
@@ -15,12 +17,12 @@ module.exports = {
     // For hot style updates
     'webpack/hot/dev-server',
     // The script refreshing the browser on none hot updates
-    'webpack-dev-server/client?http://localhost:3001',
+    'webpack-dev-server/client?http://' + host + ':' + config.wdsPort,
     // The js
     entryPath
   ],
   output: {
-      publicPath: 'http://localhost:3001/assets/',
+      publicPath: 'http://' + host + ':' + config.wdsPort + '/assets/',
       path: assetsPath,
       filename: 'bundle.js'
   },
