@@ -2,6 +2,7 @@
 
 ```shell
 npm run start
+npm run webpack
 ```
 
 ### ENOSPC?
