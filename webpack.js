@@ -37,7 +37,7 @@ var wds = new WebpackDevServer(compiler, {
 	},
 	historyApiFallback: true,
 	proxy: {
-		'*': 'http://localhost:' + config.wdsPort,	
+		'*': 'http://localhost:' + config.serverPort,	
 	}
 }).listen(config.wdsPort, 'localhost', function (err, result) {
   if (err) {

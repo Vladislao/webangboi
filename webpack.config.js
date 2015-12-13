@@ -1,6 +1,6 @@
 var path = require('path');
 var autoprefixer = require('autoprefixer-core');
-var Webpack = require('webpack');
+var webpack = require('webpack');
 
 var host = process.env.APP_HOST || 'localhost';
 var config = require('./config.js');
@@ -71,8 +71,12 @@ module.exports = {
   },
   postcss: [autoprefixer],
   plugins: [
-    new Webpack.optimize.OccurenceOrderPlugin(),
-    new Webpack.HotModuleReplacementPlugin(),
-    new Webpack.NoErrorsPlugin()
+    new webpack.ProvidePlugin({
+      '$': "jquery",
+      'jQuery': "jquery"
+    }),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
   ]
 };
